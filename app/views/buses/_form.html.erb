@@ -1,0 +1,27 @@
+<%= form_with(model: bus) do |form| %>
+  <% if bus.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bus.errors.count, "error") %> prohibited this bus from being saved:</h2>
+
+      <ul>
+        <% bus.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :geo_key, style: "display: block" %>
+    <%= form.text_area :geo_key %>
+  </div>
+
+  <div>
+    <%= form.label :path, style: "display: block" %>
+    <%= form.text_field :path %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
